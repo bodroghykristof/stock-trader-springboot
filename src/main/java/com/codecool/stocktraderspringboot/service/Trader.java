@@ -1,8 +1,8 @@
 package com.codecool.stocktraderspringboot.service;
 
-import com.codecool.stocktraderspringboot.logger.Logger;
-import com.codecool.stocktraderspringboot.service.StockAPIService;
+import com.codecool.stocktraderspringboot.service.logger.Logger;
 import org.json.JSONException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
@@ -14,6 +14,7 @@ public class Trader {
 	private Logger logger;
 	private StockAPIService stockService;
 
+	@Autowired
 	public Trader(Logger logger, StockAPIService stockService) {
         this.stockService = stockService;
         this.logger = logger;
