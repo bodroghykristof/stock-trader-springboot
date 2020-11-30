@@ -1,5 +1,6 @@
 package com.codecool.stocktraderspringboot.service;
 
+import com.codecool.stocktraderspringboot.exception.UnknownStockException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -26,11 +27,11 @@ public class StockAPIService {
 	/** Get stock price from iex and return as a double
      *  @param symbol Stock symbol, for example "aapl"
      **/
-	public double getPrice(String symbol) throws IOException, JSONException {
+	public double getPrice(String symbol) throws IOException, JSONException, UnknownStockException {
         String url = String.format(apiPath, symbol);
         String result = urlReader.readFromUrl(url);
 		JSONObject json = new JSONObject(result);
-		if (!json.toString().contains(symbol.toUpperCase())) throw new IllegalArgumentException("Symbol does not exist!");
+		if (!json.toString().contains(symbol.toUpperCase())) throw new UnknownStockException("Symbol does not exist!");
 		String price = json.get("price").toString();
         return Double.parseDouble(price);
 	}

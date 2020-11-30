@@ -1,5 +1,6 @@
 package com.codecool.stocktraderspringboot.controller;
 
+import com.codecool.stocktraderspringboot.exception.UnknownStockException;
 import com.codecool.stocktraderspringboot.service.Trader;
 import org.json.JSONException;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,17 @@ public class StockTraderController {
 		this.trader = trader;
 	}
 
-	@GetMapping("/buy/{stock}/{price}")
-	public String buyStock(@PathVariable String stock, @PathVariable int price) {
-		System.out.println("Got request");
+	@GetMapping("/buy/{stock}/{bid}")
+	public String buyStock(@PathVariable String stock, @PathVariable int bid) {
 		try {
-			trader.buy(stock, price);
-			return "Done";
+			if (trader.buy(stock, bid)) {
+				return "Purchased " + stock + " stock at $" + bid + ", since its higher that the current price ($" + trader.getPrice() + ")";
+			} else return "Bid for " + stock + " was $" + bid + " but the stock price is $" + trader.getPrice() + ", no purchase was made.";
 		} catch (IOException | JSONException e) {
 			e.printStackTrace();
-			return "Error";
+			return "An error occurred no purchase happened";
+		} catch (UnknownStockException e) {
+			return "Unfortunately the given stock is not present in our system";
 		}
 	}
 
