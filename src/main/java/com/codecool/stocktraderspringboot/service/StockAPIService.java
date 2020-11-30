@@ -2,7 +2,6 @@ package com.codecool.stocktraderspringboot.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ public class StockAPIService {
 	private static final String apiPath = "https://run.mocky.io/v3/9e14e086-84c2-4f98-9e36-54928830c980?stock=%s";
 	private final RemoteURLReader urlReader;
 
-	@Autowired
 	public StockAPIService(RemoteURLReader urlReader) {
 		this.urlReader = urlReader;
 	}
