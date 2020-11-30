@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### App Specific ###
+log.txt
