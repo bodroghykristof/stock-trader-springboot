@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockTraderController {
 
 	@GetMapping("/buy/{stock}/{price}")
-	public String buyStock(@PathVariable String stock, @PathVariable String price) {
+	public String buyStock(@PathVariable String stock, @PathVariable int price) {
 		System.out.println("Got request");
 		return "Response";
 	}
