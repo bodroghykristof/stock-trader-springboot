@@ -3,12 +3,14 @@ package com.codecool.stocktraderspringboot.service;
 import com.codecool.stocktraderspringboot.service.logger.Logger;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 /**
  * Business logic for stock trading
  **/
+@Component
 public class Trader {
 
 	private Logger logger;
