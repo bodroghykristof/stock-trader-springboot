@@ -1,4 +1,4 @@
-package com.codecool.stocktraderspringboot;
+package com.codecool.stocktraderspringboot.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

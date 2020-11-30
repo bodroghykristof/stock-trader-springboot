@@ -2,6 +2,9 @@ package com.codecool.stocktraderspringboot;
 
 import com.codecool.stocktraderspringboot.logger.FileLogger;
 import com.codecool.stocktraderspringboot.logger.Logger;
+import com.codecool.stocktraderspringboot.service.RemoteURLReader;
+import com.codecool.stocktraderspringboot.service.StockAPIService;
+import com.codecool.stocktraderspringboot.service.Trader;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

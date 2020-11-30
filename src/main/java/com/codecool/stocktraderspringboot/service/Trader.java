@@ -1,7 +1,7 @@
-package com.codecool.stocktraderspringboot;
+package com.codecool.stocktraderspringboot.service;
 
-import com.codecool.stocktraderspringboot.logger.FileLogger;
 import com.codecool.stocktraderspringboot.logger.Logger;
+import com.codecool.stocktraderspringboot.service.StockAPIService;
 import org.json.JSONException;
 
 import java.io.IOException;
