@@ -21,7 +21,7 @@ public class StockTraderController {
 	public String buyStock(@PathVariable String stock, @PathVariable int price) {
 		System.out.println("Got request");
 		try {
-			trader.buy("aapl", 100);
+			trader.buy(stock, price);
 			return "Done";
 		} catch (IOException | JSONException e) {
 			e.printStackTrace();
